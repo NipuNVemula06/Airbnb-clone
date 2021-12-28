@@ -11,21 +11,25 @@ function Header() {
   const [show, handleShow] = useState(false);
 
   // below code is for header scroll effect
-  useEffect(() => {
-    const listener = () => {
-      if (window.screenY > 100) {
-        handleShow(true);
-      } else {
-        handleShow(false);
-      }
-      window.addEventListener("scroll", listener);
+  const transitionHeader = () => {
+    if (window.scrollY > 80) {
+      handleShow(true);
+    } else {
+      handleShow(false);
+    }
+  };
 
-      return () => window.removeEventListener("scroll", listener);
-    };
+  useEffect(() => {
+    window.addEventListener("scroll", transitionHeader);
+    return () => window.removeEventListener("scroll", transitionHeader);
   }, []);
+
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md  p-5 md:px-10">
-      {/*  */}
+    <header
+      className={`fixed w-screen top-0 z-50 grid grid-cols-3 ${
+        show && "bg-white shadow-md "
+      }  p-5 md:px-10 transition duration-160 ease-in-out`}
+    >
       {/* Left Section */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image
@@ -59,7 +63,7 @@ function Header() {
           Become a host
         </p>
         <GlobeAltIcon className="h-7" />
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
+        <div className="flex items-center space-x-2 border-2  p-2 rounded-full">
           <MenuIcon className="h-7" />
           <UserCircleIcon className="h-7" />
         </div>
