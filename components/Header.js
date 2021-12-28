@@ -5,10 +5,27 @@ import {
   UserCircleIcon,
   MenuIcon,
 } from "@heroicons/react/solid";
+import { useState, useEffect } from "react";
 
 function Header() {
+  const [show, handleShow] = useState(false);
+
+  // below code is for header scroll effect
+  useEffect(() => {
+    const listener = () => {
+      if (window.screenY > 100) {
+        handleShow(true);
+      } else {
+        handleShow(false);
+      }
+      window.addEventListener("scroll", listener);
+
+      return () => window.removeEventListener("scroll", listener);
+    };
+  }, []);
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md  p-5 md:px-10">
+      {/*  */}
       {/* Left Section */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image
