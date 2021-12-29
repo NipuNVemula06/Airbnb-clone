@@ -3,7 +3,7 @@ function Footer() {
     <footer className="bg-gray-100 pt-12">
       <div
         className="grid grid-cols-1 md:grid-cols-4 gay-y-10 px-32 py-14
-                    text-gray-600
+                    text-gray-600 
     "
       >
         <div className="space-y-4 text-lg font-medium text-gray-800 mb-7">
