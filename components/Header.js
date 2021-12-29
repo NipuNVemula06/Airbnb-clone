@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/router";
 
 function Header() {
   const [show, handleShow] = useState(false); //for header scroll
@@ -17,6 +18,7 @@ function Header() {
   const [startDate, setStartDate] = useState(new Date()); //for date range
   const [endDate, setEndDate] = useState(new Date()); //for date range
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
 
   // range for the date picker
   const selectionRange = {
@@ -33,6 +35,18 @@ function Header() {
 
   const resetInput = () => {
     setSearchInput("");
+  };
+
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(), //string representation that we can use in the url
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
   };
 
   // below code is for header scroll effect
@@ -56,7 +70,10 @@ function Header() {
       }  p-5 md:px-10 transition duration-150 ease-in-out `}
     >
       {/* Left Section */}
-      <div className="relative flex items-center h-10 cursor-pointer my-auto">
+      <div
+        className="relative flex items-center h-10 cursor-pointer my-auto"
+        onClick={() => router.push("/")}
+      >
         <Image
           loading="lazy"
           src="/Images/logo.png"
@@ -69,13 +86,13 @@ function Header() {
 
       {/* Middle Section */}
       <div
-        className={`flex items-center md:border-2 rounded-full py-2 
+        className={`flex items-center md:border-2 rounded-full shadow-xl py-2 
                md:shadow-sm text-gray-600  placeholder-gray-400 ${
                  show ? "" : "border-white"
                }`}
       >
         <input
-          className="flex-grow pl-5 bg-transparent outline-none font-medium relative"
+          className="flex-grow pl-5 bg-transparent outline-none font-medium "
           type="text"
           placeholder="Start your search"
           value={searchInput}
@@ -131,6 +148,7 @@ function Header() {
               Cancel
             </button>
             <button
+              onClick={search}
               className="flex-grow text-red-400 hover:text-white hover:bg-red-400 rounded-lg
                      p-2 active:scale-90 transition duration-140"
             >
