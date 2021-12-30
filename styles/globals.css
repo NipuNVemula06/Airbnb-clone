@@ -8,3 +8,18 @@
         transition transform duration-100 ease-out text-lg font-normal;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fa8072;
+}
+
+html {
+  scroll-behavior: smooth;
+}
