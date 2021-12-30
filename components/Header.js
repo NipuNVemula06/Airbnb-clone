@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 
 function Header({ placeholder }) {
   const [show, handleShow] = useState(false); //for header scroll
@@ -88,7 +88,7 @@ function Header({ placeholder }) {
       <div
         className={`flex items-center md:border-2 rounded-full shadow-xl py-2 
                md:shadow-sm text-gray-600  placeholder-gray-400 ${
-                 show ? "" : "border-white"
+                 show ? "" : "border-gray-400"
                }`}
       >
         <input
@@ -112,7 +112,7 @@ function Header({ placeholder }) {
         <GlobeAltIcon className="h-7" />
         <div
           className={`flex items-center space-x-2 border-2 ${
-            show ? "" : "border-white"
+            show ? "" : "border-gray-400"
           }  p-2 rounded-full`}
         >
           <MenuIcon className="h-7" />
