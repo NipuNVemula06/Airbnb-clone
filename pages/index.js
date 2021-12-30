@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import { exploreData } from "../Data/exploreData";
@@ -7,27 +6,10 @@ import ExploreCard from "../components/ExploreCard";
 import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
-import { useState, useEffect } from "react";
-import Loader from "../components/Loader";
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
   return (
     <div>
-      {/* {loading ? (
-        <Loader />
-      ) : (
-        <div>
-          
-        </div>
-      )} */}
       <Header />
       <Banner />
 

@@ -76,7 +76,7 @@ function Header({ placeholder }) {
       >
         <Image
           loading="lazy"
-          src="/Images/logo.png"
+          src="/Images/airbnb.svg"
           layout="fill"
           objectFit="contain"
           objectPosition="left"
@@ -122,7 +122,7 @@ function Header({ placeholder }) {
 
       {/* Date range picker */}
       {searchInput && (
-        <div className="flex flex-col col-span-3 mx-auto mt-6 p-5 text-lg  rounded-xl bg-white shadow-2xl font-medium">
+        <div className="flex flex-col col-span-3 mx-auto mt-6 p-5   rounded-xl bg-white shadow-2xl font-medium">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}

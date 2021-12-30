@@ -2,8 +2,21 @@ import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
+import { searchData } from "../Data/searchData";
 
-function InfoCard({ img, title, description, star, price, total, location }) {
+function InfoCard({
+  img,
+  title,
+  description,
+  star,
+  price,
+  total,
+  location,
+  img1,
+  img2,
+  img3,
+  img4,
+}) {
   const router = useRouter();
   const gotoSinglepage = () => {
     router.push({
@@ -16,6 +29,10 @@ function InfoCard({ img, title, description, star, price, total, location }) {
         star: star,
         price: price,
         total: total,
+        img1: img1,
+        img2: img2,
+        img3: img3,
+        img4: img4,
       },
     });
   };

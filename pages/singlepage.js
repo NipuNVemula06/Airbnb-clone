@@ -6,8 +6,18 @@ import Footer from "../components/Footer";
 
 function singlepage() {
   const router = useRouter();
-  const { img, location, title, description, price, star, total } =
-    router.query;
+  const {
+    img,
+    location,
+    title,
+    description,
+    price,
+    star,
+    img1,
+    img2,
+    img3,
+    img4,
+  } = router.query;
   return (
     <div>
       <Header />
@@ -32,23 +42,22 @@ function singlepage() {
                   Hyderbad,Telangana,India
                 </p>
               </span>
-              <span className="hidden sm:inline-flex flex-grow items-center justify-end">
-                <button className="flex mr-6">
-                  <ShareIcon className="h-7" />
+              <span className="hidden sm:inline-flex flex-grow items-center justify-end mr-4">
+                <button className="flex mr-6  px-3 py-2 rounded-xl font-semibold  hover:bg-gray-200">
+                  <ShareIcon className="h-7 mr-3" />
                   Share
                 </button>
-                <button className="flex">
-                  <HeartIcon className="h-7" />
+                <button className="flex  px-3 py-2 rounded-xl font-semibold  hover:bg-gray-200">
+                  <HeartIcon className="h-7 mr-3" />
                   Save
                 </button>
               </span>
             </div>
           </div>
           {/* image box */}
-          <div className="flex mt-8 space-x-4">
+          <div className="flex mt-10 space-x-4">
             <div className="flex-grow">
               <img
-                className="object-contain"
                 src={img}
                 alt="main-image"
                 className="lg:rounded-l-2xl w-[800px] h-[400px] sm:h-[500px] cursor-pointer hover:opacity-90"
@@ -57,22 +66,22 @@ function singlepage() {
             <div className="hidden lg:inline-flex space-x-6">
               <div>
                 <img
-                  src={img}
-                  className="h-[240px] w-[350px] mb-5 cursor-pointer hover:opacity-90"
+                  src={img1}
+                  className="object-cover h-[240px] w-[350px] mb-5 cursor-pointer hover:opacity-90"
                 />
                 <img
-                  src={img}
-                  className="h-[240px] w-[350px] cursor-pointer hover:opacity-90"
+                  src={img2}
+                  className="object-cover h-[240px] w-[350px] cursor-pointer hover:opacity-90"
                 />
               </div>
               <div>
                 <img
-                  src={img}
-                  className="h-[240px] w-[350px] mb-5 rounded-tr-2xl cursor-pointer hover:opacity-90"
+                  src={img3}
+                  className=" object-cover h-[240px] w-[350px] mb-5 rounded-tr-2xl cursor-pointer hover:opacity-90"
                 />
                 <img
-                  src={img}
-                  className="h-[240px] w-[350px] rounded-br-2xl cursor-pointer hover:opacity-90"
+                  src={img4}
+                  className="object-cover h-[240px] w-[350px] rounded-br-2xl cursor-pointer hover:opacity-90"
                 />
               </div>
             </div>

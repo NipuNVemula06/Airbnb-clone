@@ -44,12 +44,16 @@ function Search() {
                 star={result.star}
                 price={result.price}
                 total={result.total}
+                img1={result.img1}
+                img2={result.img2}
+                img3={result.img3}
+                img4={result.img4}
               />
             ))}
           </div>
         </section>
 
-        <section className="hidden xl:inline-flex xl:min-w-[650px]">
+        <section className="hidden xl:inline-flex xl:min-w-[650px] ">
           <Map />
         </section>
       </main>
