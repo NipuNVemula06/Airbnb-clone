@@ -1,10 +1,28 @@
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
+import { useRouter } from "next/router";
 
 function InfoCard({ img, title, description, star, price, total, location }) {
+  const router = useRouter();
+  const gotoSinglepage = () => {
+    router.push({
+      pathname: "/singlepage",
+      query: {
+        img: img,
+        location: location,
+        title: title,
+        description: description,
+        star: star,
+        price: price,
+        total: total,
+      },
+    });
+  };
+
   return (
     <div
+      onClick={gotoSinglepage}
       className="flex py-7 px-2 pr-4  border-b cursor-pointer hover:opacity-90
                     hover:shadow-lg transition duration-150 ease-out first:border-t"
     >

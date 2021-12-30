@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Airbnb 2.0 | NipuNVemula</title>
         <link rel="shortcut icon" href="https://www.airbnb.co.in/favicon.ico" />
       </Head>
       <Component {...pageProps} />;

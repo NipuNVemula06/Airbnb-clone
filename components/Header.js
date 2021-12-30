@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 
 function Header({ placeholder }) {
   const [show, handleShow] = useState(false); //for header scroll

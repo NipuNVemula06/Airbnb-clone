@@ -21,10 +21,6 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Airbnb 2.0 | NipuNVemula</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       {/* {loading ? (
         <Loader />
       ) : (
