@@ -9,8 +9,8 @@ import Map from "../components/Map";
 function Search() {
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
-  const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
-  const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
+  const formattedStartDate = format(new Date(startDate), "MMM dd yyyy");
+  const formattedEndDate = format(new Date(endDate), "MMM dd yyyy");
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (

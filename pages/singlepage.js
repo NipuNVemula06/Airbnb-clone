@@ -42,7 +42,7 @@ function singlepage() {
                   Hyderbad,Telangana,India
                 </p>
               </span>
-              <span className="hidden sm:inline-flex flex-grow items-center justify-end mr-4">
+              <span className="hidden md:inline-flex flex-grow items-center justify-end mr-4">
                 <button className="flex mr-6  px-3 py-2 rounded-xl font-semibold  hover:bg-gray-200">
                   <ShareIcon className="h-7 mr-3" />
                   Share

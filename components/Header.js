@@ -116,7 +116,7 @@ function Header({ placeholder }) {
           }  p-2 rounded-full`}
         >
           <MenuIcon className="h-7" />
-          <UserCircleIcon className="h-7" />
+          <UserCircleIcon className="h-7 cursor-pointer" />
         </div>
       </div>
 
