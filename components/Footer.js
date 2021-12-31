@@ -52,11 +52,6 @@ function Footer() {
               <GitHubIcon style={{ color: "#4078c0", fontSize: "45px" }} />
             </p>
           </a>
-          <a href="https://www.linkedin.com/in/nipun-vemula-63991220a">
-            <p>
-              <LinkedInIcon style={{ color: "#0e76a8", fontSize: "50px" }} />
-            </p>
-          </a>
         </span>
       </div>
     </footer>
