@@ -4,22 +4,24 @@ import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import { searchData } from "../Data/searchData";
 import InfoCard from "../components/InfoCard";
+import "mapbox-gl/dist/mapbox-gl.css";
 import Map from "../components/Map";
 
-function Search() {
+function Search({ searchResults }) {
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
-  const formattedStartDate = format(new Date(startDate), "MMM dd yyyy");
-  const formattedEndDate = format(new Date(endDate), "MMM dd yyyy");
-  const range = `${formattedStartDate} - ${formattedEndDate}`;
+  const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
+  const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
 
   return (
     <div>
-      <Header placeholder={` ${location} | ${range} | ${noOfGuests} guests`} />
+      <Header
+        placeholder={` ${location} | ${formattedStartDate} -${formattedEndDate} | ${noOfGuests} guests`}
+      />
       <main className="flex mt-24">
         <section className="flex-grow pt-14 px-6 ">
           <p className="text-md font-normal">
-            300+ stays - {range} for {noOfGuests} guests
+            300+ stays - for {noOfGuests} guests
           </p>
           <h1 className="text-3xl font-semibold mt-2 mb-6">
             Stays in {location}
@@ -34,9 +36,10 @@ function Search() {
           </div>
 
           <div className="flex flex-col">
-            {searchData?.map((result) => (
+            {searchResults?.map((result) => (
               <InfoCard
-                key={result.img}
+                id={result.id}
+                key={result.id}
                 img={result.img}
                 location={result.location}
                 title={result.title}
@@ -54,7 +57,7 @@ function Search() {
         </section>
 
         <section className="hidden xl:inline-flex xl:min-w-[650px] ">
-          <Map />
+          <Map searchResults={searchResults} />
         </section>
       </main>
       <Footer />
@@ -64,15 +67,15 @@ function Search() {
 
 export default Search;
 
-// https://jsonkeeper.com/b/8S2M
+//https://jsonkeeper.com/b/DSQF
 
-// export async function getServerSideProps() {
-//   const searchResults = await fetch("https://jsonkeeper.com/b/8S2M").then(
-//     (res) => res.json()
-//   );
-//   return {
-//     props: {
-//       searchResults,
-//     },
-//   };
-// }
+export async function getServerSideProps() {
+  const searchResults = await fetch("https://jsonkeeper.com/b/DSQF").then(
+    (res) => res.json()
+  );
+  return {
+    props: {
+      searchResults,
+    },
+  };
+}

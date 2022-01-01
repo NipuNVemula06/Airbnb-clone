@@ -1,14 +1,13 @@
 import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import getCenterOfBounds from "geolib/es/getCenterOfBounds";
-import { searchData } from "../Data/searchData";
 import Image from "next/image";
 
-function Map() {
+function Map({ searchResults }) {
   const [selectedLocation, setSelectedLocation] = useState({});
 
   //transform the search results object into {lat ,long} object
-  const coordinates = searchData.map((result) => ({
+  const coordinates = searchResults.map((result) => ({
     longitude: result.long,
     latitude: result.lat,
   }));
@@ -18,7 +17,7 @@ function Map() {
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
-    latitude: center.latitude,
+    latitude: center.latitude - 0.2,
     longitude: center.longitude,
     zoom: 11,
   });
@@ -30,7 +29,7 @@ function Map() {
       {...viewport}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
-      {searchData.map((result) => (
+      {searchResults.map((result) => (
         <div key={result.long}>
           <Marker
             longitude={result.long}

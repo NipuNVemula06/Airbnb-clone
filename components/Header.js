@@ -20,13 +20,6 @@ function Header({ placeholder }) {
   const [noOfGuests, setNoOfGuests] = useState(1);
   const router = useRouter();
 
-  // range for the date picker
-  const selectionRange = {
-    startDate: startDate,
-    endDate: endDate,
-    key: "selection",
-  };
-
   //onchange function for date range picker
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
@@ -47,6 +40,13 @@ function Header({ placeholder }) {
         noOfGuests,
       },
     });
+  };
+
+  // range for the date picker
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
   };
 
   // below code is for header scroll effect
